@@ -13,16 +13,15 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="F:\Project\Django-Ecommerce-Website\ShoppersStop\images\logo.jpg
-" alt="" width="20" height="20">ShoppersStop</a>
+          <a class="navbar-brand" href="#">ShoppersStop</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">Features</a>
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="about/">About</a>
+              <a class="nav-link" href="contact/">Contact</a>
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </div>
           </div>
@@ -32,6 +31,18 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
       </nav>
+      <div>
+        {% load static %}
+        <a href="{% static 'shop/logo.jpg' %}">Click me</a>
+      </div>
+      <ul class="carousel-indicator">
+        <li data-target="#demo" data-slide-to="0" calss="active"></li>
+        <li data-target="#demo" data-slide-to="1"> </li>
+        <li data-target="#demo" data-slide-to="2" ></li>
+      </ul>
+
+      {% comment %} slidshow statrs here {% endcomment %}
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
