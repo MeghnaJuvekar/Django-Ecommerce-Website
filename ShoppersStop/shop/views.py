@@ -29,14 +29,15 @@ def contact(request):
     return HttpResponse("contact")
 
 def tracker(request):
-    return HttpResponse("tracker")
+    return render(request,"shop/tracker.html")
 
 def search(request):
-    return HttpResponse("search")
+    return render(request,"shop/search.html")
 
-def productview(request):
-    return HttpResponse("productview")
+def productview(request,id):
+    # Fetch Product using the Id
+    product = Product.objects.filter(id=id)
+    return render(request,"shop/productview.html",{'product':product[0]})
 
 def checkout(request):
-    return HttpResponse("checkout")
-
+    return render(request,"shop/ceckout.html")
