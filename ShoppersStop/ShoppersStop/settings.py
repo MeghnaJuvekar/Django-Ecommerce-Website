@@ -58,7 +58,7 @@ ROOT_URLCONF = 'ShoppersStop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['ShoppersStop/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

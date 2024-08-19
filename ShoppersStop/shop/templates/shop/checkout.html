@@ -8,8 +8,8 @@
     <h2> Step 1 - Review Your Cart Items</h2>
     <div>
         <ul class="list-group" id='items'>
-            
         </ul>
+        <span class="d-flex justify-content-end mr-3" id="totalPrice"></span>
     </div>
     </div>
 
@@ -69,6 +69,7 @@ if (localStorage.getItem('cart') == null) {
 }
 
 var sum = 0;
+var totalPrice = 0;
 if ($.isEmptyObject(cart)) {
     // If object is empty
     mystr = "<p>Your cart is empty, please add some items before checking out ! </p>"
@@ -79,14 +80,18 @@ for (item in cart) {
 
     let name = cart[item][1];
     let qty = cart[item][0];
+    let itemPrice = cart[item][2];
     sum = sum + qty;
+    totalPrice = totalPrice + qty*itemPrice
     mystr = `        <li class="list-group-item d-flex justify-content-between align-items-center">
                    ${name}
                     <span class="badge badge-primary badge-pill">${qty}</span>
                 </li>`
     $('#items').append(mystr);
 }
+console.log(cart);
 document.getElementById('Cart').innerHTML = sum;
+document.getElementById('totalPrice').innerHTML = "<b>Total: Rs. "+ totalPrice +"</b>" ;
 $('#itemsJson').val(JSON.stringify(cart));
 {% if thank%}
 alert("thanks for ordering. Your order id is {{id}}, Use it to track your order");
