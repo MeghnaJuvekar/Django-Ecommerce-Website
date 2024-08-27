@@ -17,6 +17,7 @@
         <h2> Step 2 - Enter Contact Information</h2>
         <form method="post" action="/shop/checkout/">{% csrf_token %}
           <input type="hidden" name="itemsJson" id="itemsJson">
+          <input type="hidden" name="amount" id="amount">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputname">Name</label>
@@ -91,13 +92,14 @@ for (item in cart) {
 }
 console.log(cart);
 document.getElementById('Cart').innerHTML = sum;
-document.getElementById('totalPrice').innerHTML = "<b>Total: Rs. "+ totalPrice +"</b>" ;
+document.getElementById('totalPrice').innerHTML = totalPrice;
 $('#itemsJson').val(JSON.stringify(cart));
 {% if thank%}
 alert("thanks for ordering. Your order id is {{id}}, Use it to track your order");
 localStorage.clear();
 document.location = "/shop";
 {%endif%}
+$('#amount').val($('#totalPrice').html())
 
 </script>
 {%endblock%}
